@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export default function Home({ posts }: any) {
+export default function Home({posts}:any) {
   return (
     <>
       <h1>{posts[0].title}</h1>
@@ -10,8 +10,8 @@ export default function Home({ posts }: any) {
 }
 
 // server side rendering
-export async function getStaticProps() {
-  const postsRes = await axios.get("http://localhost:1337/api/posts");
+export async function getServerSideProps() {
+  const postsRes = await axios.get("http://localhost:1337/posts");
 
   return {
     props: {
